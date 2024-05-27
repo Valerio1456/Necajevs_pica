@@ -1,0 +1,2 @@
+module Nechajevs_pica {
+}
