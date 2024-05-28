@@ -116,6 +116,30 @@ public class Necajevs_pica {
 				break;
                     
                 case "Pasutit picu":
+                	if(majas==true){
+    					do {
+    					 vards =(String)JOptionPane.showInputDialog(null, "Ievadi savu vardu", null, JOptionPane.QUESTION_MESSAGE);
+    				}while(vards.isBlank());
+    					do {
+    					 adrese =(String)JOptionPane.showInputDialog(null, "Ievadi savu adresi", null, JOptionPane.QUESTION_MESSAGE);
+    					}while(adrese.isBlank());
+    					 izmeri = JOptionPane.showOptionDialog(null, "Cik lielu picu velies?", null, JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE,
+    							 null, new String[] {"20cm", "30cm", "50cm"}, null);
+    					 switch(izmeri){
+    			   			case 0:
+    			   				izmers = "20cm";
+    			                izmersCena = 5.99;
+    			                break;
+    			            case 1:
+    			                izmers = "30cm";
+    			                izmersCena = 6.99;
+    			                break;
+    			            case 2:
+    			                izmers = "50cm";
+    			                izmersCena = 8.99;
+    			                break;
+    			        }
+                	}
                 	
                     break;
                     
