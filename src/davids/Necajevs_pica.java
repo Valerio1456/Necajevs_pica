@@ -153,6 +153,25 @@ public class Necajevs_pica {
     					}while(piedevas.isBlank());
     				     piedevasM = piedevas.split(",");
     				     
+    				     piedevasCena = piedevasM.length * 1;
+    				     
+    				     if(merce == merces[0]) {
+    				    	 merceCena = 1;
+    				     }else if(merce == merces[1]) {
+    				    	 merceCena = 1.50;
+    				     }else {
+    				    	 merceCena = 2; }		
+    				     
+    				     
+    					    JOptionPane.showMessageDialog(null, "Par piegadi samaksajat 3 eiro");
+    					    	 //Piegade 3 eiro
+    					     summa = izmersCena + merceCena + piedevasCena+3; 
+    					     
+    				     PicaOrder pica = new PicaOrder(izmers, merce, piedevas, siers, summa);
+    				     Lietotajs lietotajs = new Lietotajs(vards, adrese, pica);
+    				     picas.add(lietotajs);
+    					 JOptionPane.showMessageDialog(null, lietotajs.ceks(), "Veiksmigi pasutita", JOptionPane.INFORMATION_MESSAGE);
+    				     
     				     
                 	}
                 	
