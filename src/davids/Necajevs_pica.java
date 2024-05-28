@@ -139,6 +139,21 @@ public class Necajevs_pica {
     			                izmersCena = 8.99;
     			                break;
     			        }
+    					 
+    					 merce = (String)JOptionPane.showInputDialog(null, "Kadu merci velies?", null, JOptionPane.QUESTION_MESSAGE, null, merces, merces[0]);
+    					 do {
+    							
+    						 siers = (String)JOptionPane.showInputDialog(null, "Ieraksti picas sieru (mocarella, cedara, provolone)", "mocarella; cedara; provolone",  JOptionPane.QUESTION_MESSAGE); 
+    						 if (!atlautieSieri.contains(siers)) {
+    				               JOptionPane.showMessageDialog(null, "Tads siers neeksiste", null, JOptionPane.ERROR_MESSAGE);
+    				            }
+    						 }while(!atlautieSieri.contains(siers));
+    					 do {
+    					 piedevas = (String)JOptionPane.showInputDialog(null, "Kadas piedevas picai? (Ar komatu atdali)", null, JOptionPane.QUESTION_MESSAGE);
+    					}while(piedevas.isBlank());
+    				     piedevasM = piedevas.split(",");
+    				     
+    				     
                 	}
                 	
                     break;
