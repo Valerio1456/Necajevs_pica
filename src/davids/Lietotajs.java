@@ -39,13 +39,14 @@ public class Lietotajs {
 	
 	//Prieks txt faila
 	public String toString(){
+		String izvade;
 		if(adrese == "Uz vietas") {
-			String izvade = vards+" nopirka "+pica.getIzmers()+" picu ar "+pica.getMerce()+" merci ar "+pica.getSiers()+" sieru un "+pica.getPiedevas()+" piedevam un samaksaja "+pica.getSumma()+"$";
-			return izvade;
+			izvade = vards + " nopirka "+pica.getIzmers()+" picu ar "+pica.getMerce()+" merci ar "+pica.getSiers()+" sieru un "+pica.getPiedevas()+" piedevam un samaksaja "+pica.getSumma()+"$";
 		}else{
-			String izvade = vards+" pasutija uz adresi "+adrese+" "+pica.getIzmers()+" picu ar "+pica.getMerce()+" merci ar "+pica.getSiers()+" sieru un "+pica.getPiedevas()+" piedevam un samaksaja "+pica.getSumma()+"$";
-			return izvade;
+			izvade = vards+" pasutija uz adresi "+adrese+" "+pica.getIzmers()+" picu ar "+pica.getMerce()+" merci ar "+pica.getSiers()+" sieru un "+pica.getPiedevas()+" piedevam un samaksaja "+pica.getSumma()+"$";
 		}
+		izvade += "\n\n";
+		return izvade;
 		
 	}
 	
