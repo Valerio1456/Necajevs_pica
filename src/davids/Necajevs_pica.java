@@ -139,7 +139,6 @@ public class Necajevs_pica {
     			                izmersCena = 8.99;
     			                break;
     			        }
-    					 
     					 merce = (String)JOptionPane.showInputDialog(null, "Kadu merci velies?", null, JOptionPane.QUESTION_MESSAGE, null, merces, merces[0]);
     					 do {
     							
@@ -171,13 +170,22 @@ public class Necajevs_pica {
     				     Lietotajs lietotajs = new Lietotajs(vards, adrese, pica);
     				     picas.add(lietotajs);
     					 JOptionPane.showMessageDialog(null, lietotajs.ceks(), "Veiksmigi pasutita", JOptionPane.INFORMATION_MESSAGE);
+    					 
+    					 try {
+    						 FileWriter writer = new FileWriter("picas.txt", true);
+    					 	 writer.write(lietotajs.toString()+"\n");
+    					 	 writer.close();
+    					 	 JOptionPane.showMessageDialog(null, "Pica ievietota txt faila", null, JOptionPane.INFORMATION_MESSAGE);
+    					 }catch(Exception e) {
+    						 JOptionPane.showMessageDialog(null, "Kluda", "error", JOptionPane.ERROR_MESSAGE);
+    					 }
     				     
     				     
-                	}
+                	}else 	JOptionPane.showMessageDialog(null, "Jus neesiet majas, pameginiet nopirkt picu", "error", JOptionPane.ERROR_MESSAGE);
                 	
-                    break;
-                    
-                case "Aiziet":
+    				break;
+    				
+    			case "Aiziet":
     				if(majas==false){
     					majas = true;
     					JOptionPane.showMessageDialog(null, "Jus aizgajat majas", null, JOptionPane.INFORMATION_MESSAGE);
@@ -190,7 +198,7 @@ public class Necajevs_pica {
     				
     			case "Apskatit jau izveidotas picas":
     				if(!picas.isEmpty()) {
-    					
+    	
     		        	Iterator<Lietotajs> apskatit = picas.iterator();
     		        	String string = "Picas:\n";
     		        	while(apskatit.hasNext()){
@@ -203,7 +211,6 @@ public class Necajevs_pica {
     				
     			
     			}
-    				break;
     		}while(!izvele.equalsIgnoreCase("Apturet"));
     }
 }
