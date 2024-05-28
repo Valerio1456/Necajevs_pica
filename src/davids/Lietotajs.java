@@ -8,6 +8,22 @@ public class Lietotajs {
 		this.adrese=adrese;
 		this.pica=pica;
 	}
+	
+	//Prieks izveidotam picam
+	public String izvadit() {
+		
+		if(adrese == "Uz vietas") {
+			String izvade = "\nSanemts picerija\nPasutitajs "+vards+"\nPicas izmers "+pica.getIzmers()+"\nPicas merce "+pica.getMerce()+"\nPicas siers "+pica.getSiers()+
+					"\nPicas piedevas "+pica.getPiedevas()+"\n\nKopa samaksajat: "+pica.getSumma()+"$\n---------------------------------------------------------";
+			return izvade;
+		
+		}else {
+			String izvade = "\nPasutita uz "+adrese+"\nMaksa par piegadi 3$\nPasutitajs: "+vards+"\nPicas izmers "+pica.getIzmers()+"\nPicas merce "+pica.getMerce()+"\nPicas siers "+pica.getSiers()+
+					"\nPicas piedevas "+pica.getPiedevas()+"\n\nKopa samaksajat: "+pica.getSumma()+"$\n---------------------------------------------------------";
+			return izvade;
+		}
+	}
+	
 	public String getVards(){
 		return vards;
 	}
