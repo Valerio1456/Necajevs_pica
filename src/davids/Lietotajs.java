@@ -24,6 +24,22 @@ public class Lietotajs {
 		}
 	}
 	
+	public String ceks(){
+		if(adrese == "Uz vietas") {
+			String izvade = "\nSanemts picerija\nPasutitajs "+vards+"\nPicas izmers "+pica.getIzmers()+"\nPicas merce "+pica.getMerce()+"\nPicas siers "+pica.getSiers()+
+					"\nPicas piedevas "+pica.getPiedevas()+"\n\nKopa samaksajat: "+pica.getSumma()+"$";
+			return izvade;
+		}else{
+			String izvade = "\nPasutita uz "+adrese+"\nMaksa par piegadi 3$\nPasutitajs: "+vards+"\nPicas izmers "+pica.getIzmers()+"\nPicas merce "+pica.getMerce()+"\nPicas siers "+pica.getSiers()+
+					"\nPicas piedevas "+pica.getPiedevas()+"\n\nKopa samaksajat: "+pica.getSumma()+"$";
+			return izvade;
+		}
+		
+	}
+	
+	
+	
+	
 	public String getVards(){
 		return vards;
 	}

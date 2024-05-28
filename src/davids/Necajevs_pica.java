@@ -1,5 +1,6 @@
 package davids;
 
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
@@ -102,7 +103,15 @@ public class Necajevs_pica {
 			    
 			     Lietotajs lietotajs = new Lietotajs(vards, adrese, pica);
 			     picas.add(lietotajs);
-
+			     JOptionPane.showMessageDialog(null, lietotajs.ceks(), "Pica nopirkta", JOptionPane.INFORMATION_MESSAGE);
+			     try {
+					 FileWriter writer = new FileWriter("picas.txt", true);
+				 	 writer.write(lietotajs.toString()+"\n");
+				 	 writer.close();
+				 	 JOptionPane.showMessageDialog(null, "Pica ievietota txt faila", null, JOptionPane.INFORMATION_MESSAGE);
+				 }catch(Exception e) {
+					 JOptionPane.showMessageDialog(null, "Kluda", "error", JOptionPane.ERROR_MESSAGE);
+				 }
 				}else	JOptionPane.showMessageDialog(null, "Jus neesiet uz vietas picerija, pameginiet pasutit picu", "error", JOptionPane.ERROR_MESSAGE);
 				break;
                     
