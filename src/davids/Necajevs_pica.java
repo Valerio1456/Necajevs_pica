@@ -1,5 +1,7 @@
 package davids;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -197,18 +199,22 @@ public class Necajevs_pica {
     				break;
     				
     			case "Apskatit jau izveidotas picas":
-    				if(!picas.isEmpty()) {
-    	
-    		        	Iterator<Lietotajs> apskatit = picas.iterator();
-    		        	String string = "Picas:\n";
-    		        	while(apskatit.hasNext()){
-    					string += apskatit.next().izvadit();
-    		        	}
-    		        	JOptionPane.showMessageDialog(null, string, "Pasutijumi", JOptionPane.INFORMATION_MESSAGE);
-    					}else{
-    					JOptionPane.showMessageDialog(null, "Nav vel veikti pasutijumi", null, JOptionPane.ERROR_MESSAGE);
-    					}
-    				
+    				StringBuilder stringBuilder = new StringBuilder("Picas:\n");
+    			    try {
+    			        BufferedReader reader = new BufferedReader(new FileReader("picas.txt"));
+    			        String line;
+    			        while ((line = reader.readLine()) != null) {
+    			            stringBuilder.append(line).append("\n");
+    			        }
+    			        reader.close();
+    			        if (stringBuilder.length() == 6) {
+    			            JOptionPane.showMessageDialog(null, "Nav vēl veikti pasūtījumi", null, JOptionPane.ERROR_MESSAGE);
+    			        } else {
+    			            JOptionPane.showMessageDialog(null, stringBuilder.toString(), "Pasūtījumi", JOptionPane.INFORMATION_MESSAGE);
+    			        }
+    			    } catch (Exception e) {
+    			        JOptionPane.showMessageDialog(null, "Kļūda ielādējot iepriekšējos pasūtījumus", "error", JOptionPane.ERROR_MESSAGE);
+    			    }
     			
     			}
     		}while(!izvele.equalsIgnoreCase("Apturet"));
