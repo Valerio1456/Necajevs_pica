@@ -33,7 +33,7 @@ public class Necajevs_pica {
 		String izmers = "";
 		int izmeri;
 		String merce = "";
-		String merces[] = {"kecupa", "kiploku", "pesto"};
+		String merces[] = {"kecupa - 1$", "kiploku 1.5$", "pesto 2$"};
 		String piedevas = "";
 		String piedevasM[] = {};
 		
@@ -57,18 +57,18 @@ public class Necajevs_pica {
 				 vards =(String)JOptionPane.showInputDialog(null, "Ievadi savu vardu", null, JOptionPane.QUESTION_MESSAGE);
 				}while(vards.isBlank());
 				 izmeri = JOptionPane.showOptionDialog(null, "Cik lielu picu velies?", null, JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE,
-						 null, new String[] {"20cm", "30cm", "50cm"}, null);
+						 null, new String[] {"20cm - 5.99$", "30cm - 6.99$", "50cm - 8.99$"}, null);
 				 switch(izmeri){
 		   			case 0:
-		   				izmers = "20cm";
+		   				izmers = "20cm - 5.99$";
 		                izmersCena = 5.99;
 		                break;
 		            case 1:
-		                izmers = "30cm";
+		                izmers = "30cm - 6.99$";
 		                izmersCena = 6.99;
 		                break;
 		            case 2:
-		                izmers = "50cm";
+		                izmers = "50cm - 8.99$";
 		                izmersCena = 8.99;
 		                break;
 		        }
@@ -78,14 +78,14 @@ public class Necajevs_pica {
 				 
 				 do {
 					
-				 siers = (String)JOptionPane.showInputDialog(null, "Ieraksti picas sieru (mocarella, cedara, provolone)", "mocarella; cedara; provolone",  JOptionPane.QUESTION_MESSAGE); 
+				 siers = (String)JOptionPane.showInputDialog(null, "Ieraksti picas sieru (mocarella, cedara, provolone) - 1.5$", "mocarella; cedara; provolone",  JOptionPane.QUESTION_MESSAGE); 
 				 if (!atlautieSieri.contains(siers)) {
 		               JOptionPane.showMessageDialog(null, "Tads siers neeksiste", null, JOptionPane.ERROR_MESSAGE);
 		            }
 				 }while(!atlautieSieri.contains(siers));
 				 
 				 do {
-				 piedevas = (String)JOptionPane.showInputDialog(null, "Kadas piedevas picai?(Ar komatu atdali)", null, JOptionPane.QUESTION_MESSAGE);
+				 piedevas = (String)JOptionPane.showInputDialog(null, "Kadas piedevas picai?(Ar komatu atdali) - 1$", null, JOptionPane.QUESTION_MESSAGE);
 				}while(piedevas.isBlank());
 			     piedevasM = piedevas.split(",");
 			     System.out.println(piedevasM.length);
@@ -100,7 +100,14 @@ public class Necajevs_pica {
 			     }else {
 			    	 merceCena = 2; }
 			   
-			     summa = izmersCena + merceCena + piedevasCena; 
+			     summa = izmersCena + merceCena + 1.5 + piedevasCena; 
+			     String summaStepByStep = 
+			    		 "Izmers: " + izmersCena + "$" + 
+			    		 "\nMerce: " + merceCena + "$" + 
+			    		 "\nSiers: " + 1.5 + "$" + 
+			    		 "\nPiedavas: " + piedevasCena + "$" +
+			    		 "\n\nTOATAL: "+ summa + "$";
+				 JOptionPane.showMessageDialog(null, summaStepByStep);
 			     
 			     PicaOrder pica = new PicaOrder(izmers, merce, piedevas, siers, summa);
 			    
@@ -128,31 +135,31 @@ public class Necajevs_pica {
     					 adrese =(String)JOptionPane.showInputDialog(null, "Ievadi savu adresi", null, JOptionPane.QUESTION_MESSAGE);
     					}while(adrese.isBlank());
     					 izmeri = JOptionPane.showOptionDialog(null, "Cik lielu picu velies?", null, JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE,
-    							 null, new String[] {"20cm", "30cm", "50cm"}, null);
+    							 null, new String[] {"20cm - 5.99$", "30cm - 6.99$", "50cm - 8.99$"}, null);
     					 switch(izmeri){
     			   			case 0:
-    			   				izmers = "20cm";
+    			   				izmers = "20cm - 5.99$";
     			                izmersCena = 5.99;
     			                break;
     			            case 1:
-    			                izmers = "30cm";
+    			                izmers = "30cm - 6.99$";
     			                izmersCena = 6.99;
     			                break;
     			            case 2:
-    			                izmers = "50cm";
+    			                izmers = "50cm - 8.99$";
     			                izmersCena = 8.99;
     			                break;
     			        }
     					 merce = (String)JOptionPane.showInputDialog(null, "Kadu merci velies?", null, JOptionPane.QUESTION_MESSAGE, null, merces, merces[0]);
     					 do {
     							
-    						 siers = (String)JOptionPane.showInputDialog(null, "Ieraksti picas sieru (mocarella, cedara, provolone)", "mocarella; cedara; provolone",  JOptionPane.QUESTION_MESSAGE); 
+    						 siers = (String)JOptionPane.showInputDialog(null, "Ieraksti picas sieru (mocarella, cedara, provolone) - 1.5$", "mocarella; cedara; provolone",  JOptionPane.QUESTION_MESSAGE); 
     						 if (!atlautieSieri.contains(siers)) {
     				               JOptionPane.showMessageDialog(null, "Tads siers neeksiste", null, JOptionPane.ERROR_MESSAGE);
     				            }
     						 }while(!atlautieSieri.contains(siers));
     					 do {
-    					 piedevas = (String)JOptionPane.showInputDialog(null, "Kadas piedevas picai? (Ar komatu atdali)", null, JOptionPane.QUESTION_MESSAGE);
+    					 piedevas = (String)JOptionPane.showInputDialog(null, "Kadas piedevas picai? (Ar komatu atdali) - 1$", null, JOptionPane.QUESTION_MESSAGE);
     					}while(piedevas.isBlank());
     				     piedevasM = piedevas.split(",");
     				     
@@ -163,12 +170,20 @@ public class Necajevs_pica {
     				     }else if(merce == merces[1]) {
     				    	 merceCena = 1.50;
     				     }else {
-    				    	 merceCena = 2; }		
+    				    	 merceCena = 2; }	
     				     
     				     
     					    JOptionPane.showMessageDialog(null, "Par piegadi samaksajat 3 eiro");
     					    	 //Piegade 3 eiro
-    					     summa = izmersCena + merceCena + piedevasCena+3; 
+    					     summa = izmersCena + merceCena + 1.5 + piedevasCena + 3; 
+    					     String summaStepByStep = 
+    					    		 "Izmers: " + izmersCena + "$" + 
+    							    		 "\nMerce: " + merceCena + "$" + 
+    							    		 "\nSiers: " + 1.5 + "$" + 
+    							    		 "\nPiedavas: " + piedevasCena + "$" +
+    							    		 "\nPiegade: " + 3 + "$" +
+    							    		 "\n\nTOATAL: "+ summa + "$";
+    					 JOptionPane.showMessageDialog(null, summaStepByStep);
     					     
     				     PicaOrder pica = new PicaOrder(izmers, merce, piedevas, siers, summa);
     				     Lietotajs lietotajs = new Lietotajs(vards, adrese, pica);
