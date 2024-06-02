@@ -53,7 +53,6 @@ public class Necajevs_pica {
 		Image cedaraImage = cedaraIcon.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
 		Image provoloneImage = provoloneIcon.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
 
-		// Создание новых ImageIcon с измененными размерами
 		ImageIcon resizedMocarellaIcon = new ImageIcon(mocarellaImage);
 		ImageIcon resizedCedaraIcon = new ImageIcon(cedaraImage);
 		ImageIcon resizedProvoloneIcon = new ImageIcon(provoloneImage);
@@ -92,7 +91,7 @@ public class Necajevs_pica {
 				 merce = (String)JOptionPane.showInputDialog(null, "Kadu merci velies?", null, JOptionPane.QUESTION_MESSAGE, null, merces, merces[0]);
 				 
 				do {
-				    siers = (String) JOptionPane.showInputDialog(null, "Ieraksti picas sieru (mocarella, cedara, provolone)", "mocarella; cedara; provolone", JOptionPane.QUESTION_MESSAGE, null, atlautieSieri.toArray(), atlautieSieri.get(0));
+				    siers = (String) JOptionPane.showInputDialog(null, "Ieraksti picas sieru (mocarella, cedara, provolone) - 1.5$", "mocarella; cedara; provolone", JOptionPane.QUESTION_MESSAGE, null, atlautieSieri.toArray(), atlautieSieri.get(0));
 				    if (!atlautieSieri.contains(siers)) {
 				        JOptionPane.showMessageDialog(null, "Tads siers neeksiste", null, JOptionPane.ERROR_MESSAGE);
 				    }
@@ -180,7 +179,7 @@ public class Necajevs_pica {
     			        }
     					 merce = (String)JOptionPane.showInputDialog(null, "Kadu merci velies?", null, JOptionPane.QUESTION_MESSAGE, null, merces, merces[0]);
     						do {
-    						    siers = (String) JOptionPane.showInputDialog(null, "Ieraksti picas sieru (mocarella, cedara, provolone)", "mocarella; cedara; provolone", JOptionPane.QUESTION_MESSAGE, null, atlautieSieri.toArray(), atlautieSieri.get(0));
+    						    siers = (String) JOptionPane.showInputDialog(null, "Ieraksti picas sieru (mocarella, cedara, provolone) - 1.5$", "mocarella; cedara; provolone", JOptionPane.QUESTION_MESSAGE, null, atlautieSieri.toArray(), atlautieSieri.get(0));
     						    if (!atlautieSieri.contains(siers)) {
     						        JOptionPane.showMessageDialog(null, "Tads siers neeksiste", null, JOptionPane.ERROR_MESSAGE);
     						    }
