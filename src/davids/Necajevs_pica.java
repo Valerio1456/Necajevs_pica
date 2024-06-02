@@ -1,5 +1,6 @@
 package davids;
 
+import java.awt.Image;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -8,6 +9,7 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 public class Necajevs_pica {
@@ -43,6 +45,20 @@ public class Necajevs_pica {
 		
 		ArrayList<Lietotajs> picas = new ArrayList<Lietotajs>();
 		
+		ImageIcon mocarellaIcon = new ImageIcon("mocarella.png");
+		ImageIcon cedaraIcon = new ImageIcon("cedara.png");
+		ImageIcon provoloneIcon = new ImageIcon("provolone.png");
+		
+		Image mocarellaImage = mocarellaIcon.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+		Image cedaraImage = cedaraIcon.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+		Image provoloneImage = provoloneIcon.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+
+		// Создание новых ImageIcon с измененными размерами
+		ImageIcon resizedMocarellaIcon = new ImageIcon(mocarellaImage);
+		ImageIcon resizedCedaraIcon = new ImageIcon(cedaraImage);
+		ImageIcon resizedProvoloneIcon = new ImageIcon(provoloneImage);
+		
+		
 		
 		boolean majas = false;
 		
@@ -75,14 +91,26 @@ public class Necajevs_pica {
 				
 				 merce = (String)JOptionPane.showInputDialog(null, "Kadu merci velies?", null, JOptionPane.QUESTION_MESSAGE, null, merces, merces[0]);
 				 
-				 
-				 do {
-					
-				 siers = (String)JOptionPane.showInputDialog(null, "Ieraksti picas sieru (mocarella, cedara, provolone) - 1.5$", "mocarella; cedara; provolone",  JOptionPane.QUESTION_MESSAGE); 
-				 if (!atlautieSieri.contains(siers)) {
-		               JOptionPane.showMessageDialog(null, "Tads siers neeksiste", null, JOptionPane.ERROR_MESSAGE);
-		            }
-				 }while(!atlautieSieri.contains(siers));
+				do {
+				    siers = (String) JOptionPane.showInputDialog(null, "Ieraksti picas sieru (mocarella, cedara, provolone)", "mocarella; cedara; provolone", JOptionPane.QUESTION_MESSAGE, null, atlautieSieri.toArray(), atlautieSieri.get(0));
+				    if (!atlautieSieri.contains(siers)) {
+				        JOptionPane.showMessageDialog(null, "Tads siers neeksiste", null, JOptionPane.ERROR_MESSAGE);
+				    }
+				} while (!atlautieSieri.contains(siers));
+				
+				ImageIcon selectedIcon = null;
+				switch (siers) {
+				    case "mocarella":
+				        selectedIcon = resizedMocarellaIcon;
+				        break;
+				    case "cedara":
+				        selectedIcon = resizedCedaraIcon;
+				        break;
+				    case "provolone":
+				        selectedIcon = resizedProvoloneIcon;
+				        break;
+				}
+				JOptionPane.showMessageDialog(null, siers, null, JOptionPane.INFORMATION_MESSAGE, selectedIcon);
 				 
 				 do {
 				 piedevas = (String)JOptionPane.showInputDialog(null, "Kadas piedevas picai?(Ar komatu atdali) - 1$", null, JOptionPane.QUESTION_MESSAGE);
@@ -151,13 +179,26 @@ public class Necajevs_pica {
     			                break;
     			        }
     					 merce = (String)JOptionPane.showInputDialog(null, "Kadu merci velies?", null, JOptionPane.QUESTION_MESSAGE, null, merces, merces[0]);
-    					 do {
-    							
-    						 siers = (String)JOptionPane.showInputDialog(null, "Ieraksti picas sieru (mocarella, cedara, provolone) - 1.5$", "mocarella; cedara; provolone",  JOptionPane.QUESTION_MESSAGE); 
-    						 if (!atlautieSieri.contains(siers)) {
-    				               JOptionPane.showMessageDialog(null, "Tads siers neeksiste", null, JOptionPane.ERROR_MESSAGE);
-    				            }
-    						 }while(!atlautieSieri.contains(siers));
+    						do {
+    						    siers = (String) JOptionPane.showInputDialog(null, "Ieraksti picas sieru (mocarella, cedara, provolone)", "mocarella; cedara; provolone", JOptionPane.QUESTION_MESSAGE, null, atlautieSieri.toArray(), atlautieSieri.get(0));
+    						    if (!atlautieSieri.contains(siers)) {
+    						        JOptionPane.showMessageDialog(null, "Tads siers neeksiste", null, JOptionPane.ERROR_MESSAGE);
+    						    }
+    						} while (!atlautieSieri.contains(siers));
+    						
+    						ImageIcon selectedIcon = null;
+    						switch (siers) {
+    					    case "mocarella":
+    					        selectedIcon = resizedMocarellaIcon;
+    					        break;
+    					    case "cedara":
+    					        selectedIcon = resizedCedaraIcon;
+    					        break;
+    					    case "provolone":
+    					        selectedIcon = resizedProvoloneIcon;
+    					        break;
+    						}
+    						JOptionPane.showMessageDialog(null, siers, null, JOptionPane.INFORMATION_MESSAGE, selectedIcon);
     					 do {
     					 piedevas = (String)JOptionPane.showInputDialog(null, "Kadas piedevas picai? (Ar komatu atdali) - 1$", null, JOptionPane.QUESTION_MESSAGE);
     					}while(piedevas.isBlank());
