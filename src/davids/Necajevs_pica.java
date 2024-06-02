@@ -88,9 +88,10 @@ public class Necajevs_pica {
 				 piedevas = (String)JOptionPane.showInputDialog(null, "Kadas piedevas picai?(Ar komatu atdali)", null, JOptionPane.QUESTION_MESSAGE);
 				}while(piedevas.isBlank());
 			     piedevasM = piedevas.split(",");
+			     System.out.println(piedevasM.length);
 	     
 			     
-			     piedevasCena = piedevasM.length * 1;
+			     piedevasCena = piedevasM.length * 1; //katra jauna pildījuma +1 eiro!
 			     
 			     if(merce == merces[0]) {
 			    	 merceCena = 1;
@@ -115,6 +116,7 @@ public class Necajevs_pica {
 					 JOptionPane.showMessageDialog(null, "Kluda", "error", JOptionPane.ERROR_MESSAGE);
 				 }
 				}else	JOptionPane.showMessageDialog(null, "Jus neesiet uz vietas picerija, pameginiet pasutit picu", "error", JOptionPane.ERROR_MESSAGE);
+				
 				break;
                     
                 case "Pasutit picu":
@@ -154,7 +156,7 @@ public class Necajevs_pica {
     					}while(piedevas.isBlank());
     				     piedevasM = piedevas.split(",");
     				     
-    				     piedevasCena = piedevasM.length * 1;
+    				     piedevasCena = piedevasM.length * 1; //katra jauna pildījuma +1 eiro
     				     
     				     if(merce == merces[0]) {
     				    	 merceCena = 1;
@@ -215,8 +217,8 @@ public class Necajevs_pica {
     			    } catch (Exception e) {
     			        JOptionPane.showMessageDialog(null, "Kļūda ielādējot iepriekšējos pasūtījumus", "error", JOptionPane.ERROR_MESSAGE);
     			    }
-    			
     			}
+			
     		}while(!izvele.equalsIgnoreCase("Apturet"));
     }
 }
